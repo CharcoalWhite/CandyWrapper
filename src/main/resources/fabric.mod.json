@@ -1,0 +1,60 @@
+{
+	"schemaVersion": 1,
+	"id": "candywrapper",
+	"version": "${version}",
+	"name": "CandyWrapper",
+	"description": "A library mod for CharcoalWhite's mods.",
+	"authors": [
+		{
+			"name": "CharcoalWhite",
+			"contact": {
+				"homepage": "https://github.com/CharcoalWhite"
+			}
+		}
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/CandyWrapper",
+		"sources": "https://github.com/CharcoalWhite/CandyWrappe"
+	},
+	"license": "GNU-GPL-3.0",
+	"icon": "assets/candywrapper/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"org.charcoalwhite.candywrapper.CandyWrapper"
+		],
+		"client": [
+			"org.charcoalwhite.candywrapper.CandyWrapperClient"
+		]
+	},
+	"mixins": [
+		"candywrapper.mixins.json",
+		{
+			"config": "candywrapper.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.7",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	},
+	"custom": {
+		"loom:injected_interfaces": {
+			"net/minecraft/entity/Entity": [
+				"org/charcoalwhite/candywrapper/api/EntityApi"
+			],
+			"net/minecraft/scoreboard/Scoreboard": [
+				"org/charcoalwhite/candywrapper/api/ScoreboardApi"
+			],
+			"net/minecraft/server/world/ServerWorld": [
+				"org/charcoalwhite/candywrapper/api/ServerWorldApi"
+			]
+		}
+	},
+	"accessWidener": "candywrapper.accesswidener"
+}
